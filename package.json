@@ -1,0 +1,12 @@
+{
+    "name": "simple-node-server",
+    "version": "0.0.1",
+    "private": "true",
+    "description": "Barebones Node server.",
+    "dependencies": {
+        "dotenv": "^5.0.0",
+        "request": "^2.83.0"
+    },
+    "devDependencies": {},
+    "scripts": {}
+}
