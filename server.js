@@ -6,8 +6,6 @@ const request = require('request')
 const port = process.env.PORT || 3000
 const googleApiKey = process.env.GOOGLE_API_KEY
 
-console.log(`GAPI KEY = ${googleApiKey}`)
-
 if (googleApiKey === '' || googleApiKey === undefined) {
     console.log('Need to add Google API key to the .env file.')
     return
@@ -17,7 +15,7 @@ if (googleApiKey === '' || googleApiKey === undefined) {
 
 let makeGoogleCall = function () {
     request({ method: 'GET',
-        uri: 'https://maps.googleapis.com/maps/api/geocode/json?address=Sheridan,Wyoming&key=' + googleApiKey
+        uri: `https://maps.googleapis.com/maps/api/geocode/json?address=Sheridan,Wyoming&key=${googleApiKey}`
     },
     function (error, response, body) {
         console.log(body)
@@ -34,7 +32,7 @@ const requestHandler = (request, response) => {
 
 const server = http.createServer(requestHandler)
 
-server.listen(port, (err) => {
+server.listen(port, function (err) {
   if (err) {
     return console.log('Something bad happened.', err)
   }
